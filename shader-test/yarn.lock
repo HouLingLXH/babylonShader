@@ -1111,6 +1111,60 @@
     "@babel/helper-validator-identifier" "^7.14.0"
     to-fast-properties "^2.0.0"
 
+"@babylonjs/core@4.2.0", "@babylonjs/core@^4.2.0":
+  version "4.2.0"
+  resolved "https://registry.nlark.com/@babylonjs/core/download/@babylonjs/core-4.2.0.tgz#d1cfd43d7e3d2e58cde79083f04eeb607f6c8f18"
+  integrity sha1-0c/UPX49LljN55CD8E7rYH9sjxg=
+  dependencies:
+    tslib ">=1.10.0"
+
+"@babylonjs/gui@4.2.0", "@babylonjs/gui@^4.2.0":
+  version "4.2.0"
+  resolved "https://registry.nlark.com/@babylonjs/gui/download/@babylonjs/gui-4.2.0.tgz#c2a35ca6724759731fe0c4ddbfe2490301847f93"
+  integrity sha1-wqNcpnJHWXMf4MTdv+JJAwGEf5M=
+  dependencies:
+    "@babylonjs/core" "4.2.0"
+    tslib ">=1.10.0"
+
+"@babylonjs/inspector@^4.2.0":
+  version "4.2.0"
+  resolved "https://registry.nlark.com/@babylonjs/inspector/download/@babylonjs/inspector-4.2.0.tgz#70d901729097f79b166decccfc8ed2195d2b1c35"
+  integrity sha1-cNkBcpCX95sWbezM/I7SGV0rHDU=
+  dependencies:
+    "@babylonjs/core" "4.2.0"
+    "@babylonjs/gui" "4.2.0"
+    "@babylonjs/loaders" "4.2.0"
+    "@babylonjs/materials" "4.2.0"
+    "@babylonjs/serializers" "4.2.0"
+    babylonjs-gltf2interface "4.2.0"
+    tslib ">=1.10.0"
+
+"@babylonjs/loaders@4.2.0", "@babylonjs/loaders@^4.2.0":
+  version "4.2.0"
+  resolved "https://registry.nlark.com/@babylonjs/loaders/download/@babylonjs/loaders-4.2.0.tgz#a9902dc277c16dcd22cd1907f86310e211c247cb"
+  integrity sha1-qZAtwnfBbc0izRkH+GMQ4hHCR8s=
+  dependencies:
+    "@babylonjs/core" "4.2.0"
+    babylonjs-gltf2interface "4.2.0"
+    tslib ">=1.10.0"
+
+"@babylonjs/materials@4.2.0", "@babylonjs/materials@^4.2.0":
+  version "4.2.0"
+  resolved "https://registry.nlark.com/@babylonjs/materials/download/@babylonjs/materials-4.2.0.tgz#8d889e49f6824e4fc62622b221f36ab0b8334d6e"
+  integrity sha1-jYieSfaCTk/GJiKyIfNqsLgzTW4=
+  dependencies:
+    "@babylonjs/core" "4.2.0"
+    tslib ">=1.10.0"
+
+"@babylonjs/serializers@4.2.0":
+  version "4.2.0"
+  resolved "https://registry.nlark.com/@babylonjs/serializers/download/@babylonjs/serializers-4.2.0.tgz#ca8c9b773c1985e8b49790ec65f6fdcf4cea0a49"
+  integrity sha1-yoybdzwZhei0l5DsZfb9z0zqCkk=
+  dependencies:
+    "@babylonjs/core" "4.2.0"
+    babylonjs-gltf2interface "4.2.0"
+    tslib ">=1.10.0"
+
 "@discoveryjs/json-ext@0.5.2":
   version "0.5.2"
   resolved "https://registry.nlark.com/@discoveryjs/json-ext/download/@discoveryjs/json-ext-0.5.2.tgz#8f03a22a04de437254e8ce8cc84ba39689288752"
@@ -1306,10 +1360,36 @@
   resolved "https://registry.nlark.com/@types/parse-json/download/@types/parse-json-4.0.0.tgz?cache=0&sync_timestamp=1621242117704&other_urls=https%3A%2F%2Fregistry.nlark.com%2F%40types%2Fparse-json%2Fdownload%2F%40types%2Fparse-json-4.0.0.tgz#2f8bb441434d163b35fb8ffdccd7138927ffb8c0"
   integrity sha1-L4u0QUNNFjs1+4/9zNcTiSf/uMA=
 
+"@types/prop-types@*":
+  version "15.7.3"
+  resolved "https://registry.nlark.com/@types/prop-types/download/@types/prop-types-15.7.3.tgz?cache=0&sync_timestamp=1621242237823&other_urls=https%3A%2F%2Fregistry.nlark.com%2F%40types%2Fprop-types%2Fdownload%2F%40types%2Fprop-types-15.7.3.tgz#2ab0d5da2e5815f94b0b9d4b95d1e5f243ab2ca7"
+  integrity sha1-KrDV2i5YFflLC51LldHl8kOrLKc=
+
 "@types/q@^0.0.32":
   version "0.0.32"
   resolved "https://registry.nlark.com/@types/q/download/@types/q-0.0.32.tgz?cache=0&sync_timestamp=1621242400776&other_urls=https%3A%2F%2Fregistry.nlark.com%2F%40types%2Fq%2Fdownload%2F%40types%2Fq-0.0.32.tgz#bd284e57c84f1325da702babfc82a5328190c0c5"
   integrity sha1-vShOV8hPEyXacCur/IKlMoGQwMU=
+
+"@types/react-dom@^17.0.5":
+  version "17.0.5"
+  resolved "https://registry.nlark.com/@types/react-dom/download/@types/react-dom-17.0.5.tgz#df44eed5b8d9e0b13bb0cd38e0ea6572a1231227"
+  integrity sha1-30Tu1bjZ4LE7sM044OplcqEjEic=
+  dependencies:
+    "@types/react" "*"
+
+"@types/react@*", "@types/react@^17.0.8":
+  version "17.0.8"
+  resolved "https://registry.nlark.com/@types/react/download/@types/react-17.0.8.tgz#fe76e3ba0fbb5602704110fd1e3035cf394778e3"
+  integrity sha1-/nbjug+7VgJwQRD9HjA1zzlHeOM=
+  dependencies:
+    "@types/prop-types" "*"
+    "@types/scheduler" "*"
+    csstype "^3.0.2"
+
+"@types/scheduler@*":
+  version "0.16.1"
+  resolved "https://registry.nlark.com/@types/scheduler/download/@types/scheduler-0.16.1.tgz?cache=0&sync_timestamp=1621242658440&other_urls=https%3A%2F%2Fregistry.nlark.com%2F%40types%2Fscheduler%2Fdownload%2F%40types%2Fscheduler-0.16.1.tgz#18845205e86ff0038517aab7a18a62a6b9f71275"
+  integrity sha1-GIRSBehv8AOFF6q3oYpiprn3EnU=
 
 "@types/selenium-webdriver@^3.0.0":
   version "3.0.17"
@@ -1861,6 +1941,11 @@ babel-plugin-dynamic-import-node@^2.3.3:
   integrity sha1-hP2hnJduxcbe/vV/lCez3vZuF6M=
   dependencies:
     object.assign "^4.1.0"
+
+babylonjs-gltf2interface@4.2.0:
+  version "4.2.0"
+  resolved "https://registry.nlark.com/babylonjs-gltf2interface/download/babylonjs-gltf2interface-4.2.0.tgz#b0ef1e11e3574cf2c6f573d0c5c34857a2a7b322"
+  integrity sha1-sO8eEeNXTPLG9XPQxcNIV6KnsyI=
 
 balanced-match@^1.0.0:
   version "1.0.2"
@@ -2969,6 +3054,11 @@ csso@^4.2.0:
   integrity sha1-6jpWE0bo3J9UbW/r7dUBh884lSk=
   dependencies:
     css-tree "^1.1.2"
+
+csstype@^3.0.2:
+  version "3.0.8"
+  resolved "https://registry.nlark.com/csstype/download/csstype-3.0.8.tgz#d2266a792729fb227cd216fb572f43728e1ad340"
+  integrity sha1-0iZqeScp+yJ80hb7Vy9Dco4a00A=
 
 custom-event@~1.0.0:
   version "1.0.1"
@@ -8031,15 +8121,15 @@ tslib@2.1.0:
   resolved "https://registry.npm.taobao.org/tslib/download/tslib-2.1.0.tgz?cache=0&sync_timestamp=1617647281845&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Ftslib%2Fdownload%2Ftslib-2.1.0.tgz#da60860f1c2ecaa5703ab7d39bc05b6bf988b97a"
   integrity sha1-2mCGDxwuyqVwOrfTm8Bba/mIuXo=
 
+tslib@>=1.10.0, tslib@^2.0.0:
+  version "2.2.0"
+  resolved "https://registry.npm.taobao.org/tslib/download/tslib-2.2.0.tgz?cache=0&sync_timestamp=1617647281845&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Ftslib%2Fdownload%2Ftslib-2.2.0.tgz#fb2c475977e35e241311ede2693cee1ec6698f5c"
+  integrity sha1-+yxHWXfjXiQTEe3iaTzuHsZpj1w=
+
 tslib@^1.10.0, tslib@^1.13.0, tslib@^1.8.1, tslib@^1.9.0:
   version "1.14.1"
   resolved "https://registry.npm.taobao.org/tslib/download/tslib-1.14.1.tgz?cache=0&sync_timestamp=1617647281845&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Ftslib%2Fdownload%2Ftslib-1.14.1.tgz#cf2d38bdc34a134bcaf1091c41f6619e2f672d00"
   integrity sha1-zy04vcNKE0vK8QkcQfZhni9nLQA=
-
-tslib@^2.0.0:
-  version "2.2.0"
-  resolved "https://registry.npm.taobao.org/tslib/download/tslib-2.2.0.tgz?cache=0&sync_timestamp=1617647281845&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Ftslib%2Fdownload%2Ftslib-2.2.0.tgz#fb2c475977e35e241311ede2693cee1ec6698f5c"
-  integrity sha1-+yxHWXfjXiQTEe3iaTzuHsZpj1w=
 
 tslint@~6.1.0:
   version "6.1.3"
