@@ -1,4 +1,4 @@
-import { AbstractMesh, MeshBuilder, NodeMaterial, Scene, SceneLoader } from "@babylonjs/core";
+import { AbstractMesh, Mesh, MeshBuilder, NodeMaterial, Scene, SceneLoader } from "@babylonjs/core";
 
 /**
  * 节点材质使用
@@ -29,6 +29,17 @@ export class ShaderNPM {
         box.position.y = 2;
         this.testShader("ice2", box);
 
+        let go_Switch = SceneLoader.ImportMesh("", "assets/mesh/switch/", "scene.gltf", undefined, (meshes) => {
+
+            for (let i = 0; i < meshes.length; i++) {
+                let mat = meshes[i].material;
+                if (mat != null) {
+                    this.testShader("test/vertex_color", meshes[i]);
+                }
+            }
+
+
+        });
 
     }
 
