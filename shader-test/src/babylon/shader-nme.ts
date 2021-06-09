@@ -3,9 +3,9 @@ import { AbstractMesh, Mesh, MeshBuilder, NodeMaterial, Scene, SceneLoader } fro
 /**
  * 节点材质使用
  */
-export class ShaderNPM {
+export class ShaderNME {
 
-    private static instance: ShaderNPM;
+    private static instance: ShaderNME;
 
     scene: Scene;
 
@@ -14,9 +14,9 @@ export class ShaderNPM {
     }
 
     static Init(scene: Scene) {
-        if (ShaderNPM.instance == null) {
-            ShaderNPM.instance = new ShaderNPM(scene);
-            ShaderNPM.instance.createTestMesh();
+        if (ShaderNME.instance == null) {
+            ShaderNME.instance = new ShaderNME(scene);
+            ShaderNME.instance.createTestMesh();
         }
     }
 

@@ -1,6 +1,6 @@
 import { ArcRotateCamera, Color3, Engine, HemisphericLight, MeshBuilder, PBRMaterial, PointLight, Scene, StandardMaterial, Vector3 } from "@babylonjs/core";
 import { SceneManager } from "./scene-manager";
-import { ShaderNPM } from "./shader-npm";
+import { ShaderNME } from "./shader-nme";
 
 export class Game {
 
@@ -49,7 +49,7 @@ export class Game {
 
         let scene = this.scene;
 
-        ShaderNPM.Init(scene);
+        ShaderNME.Init(scene);
 
         //最后，将场景渲染出来
         this.engine.runRenderLoop(function () {
