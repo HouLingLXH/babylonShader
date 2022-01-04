@@ -1,4 +1,5 @@
-import { ArcRotateCamera, Color3, Engine, HemisphericLight, MeshBuilder, PBRMaterial, PointLight, Scene, StandardMaterial, Vector3 } from "@babylonjs/core";
+import { Directive } from "@angular/core";
+import { ArcRotateCamera, Color3, DirectionalLight, Engine, HemisphericLight, Mesh, MeshBuilder, PBRMaterial, PointLight, Scene, ShadowGenerator, StandardMaterial, Vector3 } from "@babylonjs/core";
 import { SceneManager } from "./scene-manager";
 import { ShaderNME } from "./shader-nme";
 
@@ -10,13 +11,27 @@ export class Game {
     public canvas!: HTMLCanvasElement;
     public scene!: Scene;
 
-
+    public shadowGenerator!: ShadowGenerator;//阴影
 
     public initEngine(canvas: HTMLCanvasElement) {
         this.canvas = canvas;
         this.engine = new Engine(canvas);
         this.scene = new Scene(this.engine);
         Game.instance = this;
+    }
+
+
+    public initShadow(light: DirectionalLight) {
+        if (this.shadowGenerator == null) {
+            this.shadowGenerator = new ShadowGenerator(2048, light);
+        }
+
+        this.shadowGenerator.usePercentageCloserFiltering = true;
+        this.shadowGenerator.filteringQuality = ShadowGenerator.QUALITY_MEDIUM;
+        // this.shadowGenerator.blurKernel = 32;
+        if (light != null) {
+            //  light.autoCalcShadowZBounds = true; //投影矩阵距离自适应
+        }
     }
 
     public createScene() {
@@ -30,13 +45,17 @@ export class Game {
         );
         camera.attachControl(this.canvas, true);
 
-        let light = new HemisphericLight("light1", new Vector3(1, 1, 0), this.scene);
+        //let light = new HemisphericLight("light1", new Vector3(1, 1, 0), this.scene);
         let light2 = new PointLight("light2", new Vector3(0, 1, -1), this.scene);
+        let sun = new DirectionalLight("sun", new Vector3(0, -1, 0), this.scene);
+        sun.position.y = 100;
+        this.initShadow(sun);
 
         // let sphere = MeshBuilder.CreateSphere("sphere", { diameter: 2 }, this.scene);
 
         let ground = MeshBuilder.CreateGround("ground", { width: 100, height: 100 });
         ground.position.y = -10;
+        ground.receiveShadows = true;
 
         let mat_ground = new StandardMaterial("mat_ground", this.scene);
         ground.material = mat_ground;
@@ -66,6 +85,13 @@ export class Game {
 
     }
 
+    /**
+     * 添加到阴影
+     * @param mesh 
+     */
+    public addShadow(mesh: Mesh) {
+        this.shadowGenerator.addShadowCaster(mesh)
+    }
 
 
 
