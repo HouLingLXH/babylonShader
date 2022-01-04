@@ -56,7 +56,6 @@ export class ShaderNME {
                         if (block != null) {
                             block.value = 0.7;
                         }
-
                         console.log("attachedBlocks", mat.attachedBlocks);
                         (mat.attachedBlocks[7] as InputBlock).value = new Color4(1, 0, 0, 1);
 
@@ -79,12 +78,9 @@ export class ShaderNME {
 
                         this.scene.beginAnimation(mat, 0, 60, true);
 
-
                     });
                 }
             }
-
-
         });
 
     }
