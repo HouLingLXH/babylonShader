@@ -95,9 +95,7 @@ export class ShaderNME {
             if (mesh != null) {
                 mesh.material = nodeMaterial;
 
-                // for (let i = 0; i < inputs.length; i++) {
-                //     console.log(inputs[i]);
-                // }
+                //测试提交
 
             }
 
