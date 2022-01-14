@@ -26,7 +26,7 @@ export class SceneManager {
     }
 
 
-    static showDebug = false;
+    static showDebug = true;
     //按键按下
     static onKeyDown(this: GlobalEventHandlers, ev: KeyboardEvent) {
         if (ev.key == 'd') {

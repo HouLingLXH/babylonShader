@@ -94,9 +94,6 @@ export class ShaderNME {
             nodeMaterial.build(true);
             if (mesh != null) {
                 mesh.material = nodeMaterial;
-
-                //测试提交
-
             }
 
             if (onSuccess != null) {
