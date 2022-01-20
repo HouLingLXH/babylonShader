@@ -1,5 +1,6 @@
 import { Directive } from "@angular/core";
 import { ArcRotateCamera, Color3, DirectionalLight, Engine, HemisphericLight, Mesh, MeshBuilder, PBRMaterial, PointLight, Scene, ShadowGenerator, StandardMaterial, Vector3 } from "@babylonjs/core";
+import { PointAnim } from "./point-anim";
 import { SceneManager } from "./scene-manager";
 import { ShaderNME } from "./shader-nme";
 
@@ -10,6 +11,8 @@ export class Game {
     public engine!: Engine;
     public canvas!: HTMLCanvasElement;
     public scene!: Scene;
+    public camera!: ArcRotateCamera;
+    public ground!: Mesh;
 
     public shadowGenerator!: ShadowGenerator;//阴影
 
@@ -44,6 +47,7 @@ export class Game {
             this.scene
         );
         camera.attachControl(this.canvas, true);
+        this.camera = camera;
 
         //let light = new HemisphericLight("light1", new Vector3(1, 1, 0), this.scene);
         let light2 = new PointLight("light2", new Vector3(0, 1, -1), this.scene);
@@ -56,6 +60,7 @@ export class Game {
         let ground = MeshBuilder.CreateGround("ground", { width: 100, height: 100 });
         ground.position.y = -10;
         ground.receiveShadows = true;
+        this.ground = ground;
 
         let mat_ground = new StandardMaterial("mat_ground", this.scene);
         ground.material = mat_ground;
@@ -68,7 +73,9 @@ export class Game {
 
         let scene = this.scene;
 
-        ShaderNME.Init(scene);
+        // ShaderNME.Init(scene);
+        PointAnim.init(scene);
+
 
         //最后，将场景渲染出来
         this.engine.runRenderLoop(function () {
