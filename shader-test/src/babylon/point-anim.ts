@@ -1,7 +1,6 @@
-import { BezierCurveEase, Color4, EventState, FloatArray, IndicesArray, ISceneLoaderAsyncResult, Matrix, Mesh, MeshBuilder, Nullable, PointerEventTypes, PointerInfo, Quaternion, Scene, SceneLoader, StandardMaterial, Vector3, VertexBuffer } from "@babylonjs/core";
+import { BezierCurveEase, Color4, EventState, ISceneLoaderAsyncResult, Matrix, Mesh, MeshBuilder, PointerEventTypes, PointerInfo, Quaternion, Scene, SceneLoader, StandardMaterial, Vector3, VertexBuffer } from "@babylonjs/core";
 import { AbstractMesh } from "@babylonjs/core/Meshes/abstractMesh";
 import { Game } from "./game";
-import { SceneManager } from "./scene-manager";
 import { TsTool } from "./tool/ts-tool";
 
 export class PointAnim {
@@ -22,14 +21,12 @@ export class PointAnim {
         PointAnim.instance.onCreate();
     }
 
-
     //#region 声明周期
     onCreate() {
         let instance = this;
 
         Game.instance.ground.setEnabled(false);
         Game.instance.scene.clearColor = new Color4(0, 0, 0, 1);
-
 
         //"assets/mesh/pkq/", "pikaqiu.obj"
 
@@ -43,15 +40,8 @@ export class PointAnim {
                     instance.meshes_PKQ = result.meshes[i];
                 }
             }
-
             instance.onGetMesh_PKQ();
         });
-
-
-
-
-
-
     }
     //#endregion
 
@@ -63,13 +53,12 @@ export class PointAnim {
 
         let instance = this;
 
+        //所有顶点的局部坐标
         let vertexBuffer_pos = this.meshes_PKQ.getVerticesData(VertexBuffer.PositionKind);
 
         let material = new StandardMaterial("mat_pkq", this.scene);
-        let indicesNum: number = this.meshes_PKQ.getTotalIndices();
         this.meshes_PKQ.material = material;
         this.meshes_PKQ.setEnabled(false);
-
 
 
         for (let i = 0; i < 10; i++) {
@@ -87,9 +76,6 @@ export class PointAnim {
             this.allPointMesh.push(pointMesh);
 
             instance.updateRender(go_point, positionData);
-
-
-
         }
 
         instance.scene.onBeforeRenderObservable.add(() => {
@@ -97,14 +83,9 @@ export class PointAnim {
         });
         instance.scene.onPointerObservable.add((eventData: PointerInfo, eventState: EventState) => {
             if (eventData.type == PointerEventTypes.POINTERPICK) {
-
                 instance.playAnim(instance.allPointMesh);
             }
         });
-
-
-
-
     }
 
 
@@ -150,8 +131,6 @@ export class PointAnim {
      */
     pointsAnim(points: PointMesh[]) {
 
-
-
         this.animTimer -= this.scene.deltaTime;
 
         if (this.animTimer <= 0) {
@@ -173,11 +152,6 @@ export class PointAnim {
         for (let i = 0; i < points.length; i++) {
             this.updateRender(points[i].sourceMesh, points[i].positionData, progress);
         }
-
-
-
-
-
     }
 
     //#endregion
