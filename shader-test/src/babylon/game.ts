@@ -1,5 +1,5 @@
 import { Directive } from "@angular/core";
-import { ArcRotateCamera, Color3, DirectionalLight, Engine, HemisphericLight, Mesh, MeshBuilder, PBRMaterial, PointLight, Scene, ShadowGenerator, StandardMaterial, Vector3 } from "@babylonjs/core";
+import { ArcRotateCamera, Color3, CubeTexture, DirectionalLight, Engine, HemisphericLight, Mesh, MeshBuilder, PBRMaterial, PointLight, Scene, ShadowGenerator, StandardMaterial, Vector3 } from "@babylonjs/core";
 import { PointAnim } from "./point-anim";
 import { SceneManager } from "./scene-manager";
 import { ShaderNME } from "./shader-nme";
@@ -76,6 +76,8 @@ export class Game {
         // ShaderNME.Init(scene);
         PointAnim.init(scene);
 
+        this.createSkybox();
+
 
         //最后，将场景渲染出来
         this.engine.runRenderLoop(function () {
@@ -100,7 +102,13 @@ export class Game {
         this.shadowGenerator.addShadowCaster(mesh)
     }
 
-
+    /**
+     * 
+     */
+    public createSkybox() {
+        const cubeTexture = new CubeTexture("assets/skybox/environmentSpecular.dds", this.scene);
+        this.scene.createDefaultSkybox(cubeTexture, true, 1000)
+    }
 
 
 }

@@ -123,4 +123,8 @@ export class ShaderNME {
 
     }
 
+    testSkyBox() {
+
+    }
+
 }
