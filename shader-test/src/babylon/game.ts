@@ -1,5 +1,6 @@
+import { LEADING_TRIVIA_CHARS } from "@angular/compiler/src/render3/view/template";
 import { Directive } from "@angular/core";
-import { ArcRotateCamera, Color3, CubeTexture, DirectionalLight, Engine, HemisphericLight, Mesh, MeshBuilder, PBRMaterial, PointLight, Scene, ShadowGenerator, StandardMaterial, Vector3 } from "@babylonjs/core";
+import { ArcRotateCamera, Color3, Color4, CubeTexture, DirectionalLight, Engine, HemisphericLight, Layer, Mesh, MeshBuilder, PBRMaterial, PointLight, Scene, ShadowGenerator, StandardMaterial, Vector3 } from "@babylonjs/core";
 import { PointAnim } from "./point-anim";
 import { SceneManager } from "./scene-manager";
 import { ShaderNME } from "./shader-nme";
@@ -49,6 +50,8 @@ export class Game {
         camera.attachControl(this.canvas, true);
         this.camera = camera;
 
+        // this.alphaBG();
+
         //let light = new HemisphericLight("light1", new Vector3(1, 1, 0), this.scene);
         let light2 = new PointLight("light2", new Vector3(0, 1, -1), this.scene);
         let sun = new DirectionalLight("sun", new Vector3(0, -1, 0), this.scene);
@@ -76,7 +79,8 @@ export class Game {
         // ShaderNME.Init(scene);
         PointAnim.init(scene);
 
-        this.createSkybox();
+        // this.createSkybox();
+        // this.layer();
 
 
         //最后，将场景渲染出来
@@ -103,11 +107,26 @@ export class Game {
     }
 
     /**
-     * 
+     * 透明背景
+     */
+    public alphaBG() {
+        this.scene.clearColor = new Color4(0, 0, 0, 0);
+        this.scene.autoClear = false;
+    }
+    /**
+     * 创建天空盒
      */
     public createSkybox() {
+
         const cubeTexture = new CubeTexture("assets/skybox/environmentSpecular.dds", this.scene);
         this.scene.createDefaultSkybox(cubeTexture, true, 1000)
+    }
+
+    /**
+     * 2d图片背景
+     */
+    public layer() {
+        const layer = new Layer("layer", "assets/skybox/noise2.jpg", this.scene);
     }
 
 
