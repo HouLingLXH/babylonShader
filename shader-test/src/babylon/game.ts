@@ -4,6 +4,7 @@ import { ArcRotateCamera, Color3, Color4, CubeTexture, DirectionalLight, Engine,
 import { PointAnim } from "./point-anim";
 import { SceneManager } from "./scene-manager";
 import { ShaderNME } from "./shader-nme";
+import { ShaderNME_ShangHai } from "./shader-nme-shanghai";
 
 export class Game {
 
@@ -76,10 +77,11 @@ export class Game {
 
         let scene = this.scene;
 
-        // ShaderNME.Init(scene);
-        PointAnim.init(scene);
+        ShaderNME.Init(scene);
+        // ShaderNME_ShangHai.Init(scene);
+        // PointAnim.init(scene);
 
-        // this.createSkybox();
+        this.createSkybox();
         // this.layer();
 
 
